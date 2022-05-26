@@ -2,20 +2,10 @@
 
 A command line tool that scrapes the solutions of all the CodeWars katas you have solved.
 
-## Installation
-
-To install the tool simply run the following command in a terminal:
-
-```sh
-npm install -g codewars-solutions-scraper
-```
-
-And the command `codewars-solutions-scraper` will be installed globally in your system and ready to use.
-
 ## Usage
 
 ```sh
-codewars-solutions-scraper [options]
+npm start -- [options]
 
 Options:
   -V, --version              output the version number
@@ -39,7 +29,7 @@ Options:
 If you want to log in to CodeWars using your GitHub credentials then run:
 
 ```sh
-codewars-solutions-scraper -g -u <YOUR_CODEWARS_USERNAME> -e <YOUR_GITHUB_EMAIL> -p <YOUR_GITHUB_PASSWORD>
+npm start -- -g -u <YOUR_CODEWARS_USERNAME> -e <YOUR_GITHUB_EMAIL> -p <YOUR_GITHUB_PASSWORD>
 ```
 
 Note that if you log in via GitHub, you will be prompted to enter a verification code sent to your GitHub account email.
@@ -55,7 +45,7 @@ When you receive the verification code, just type it in and press Enter.
 If you want to log in to CodeWars using your CodeWars credentials then run:
 
 ```sh
-codewars-solutions-scraper -c -u <YOUR_CODEWARS_USERNAME> -e <YOUR_CODEWARS_EMAIL> -p <YOUR_CODEWARS_PASSWORD>
+npm start -- -c -u <YOUR_CODEWARS_USERNAME> -e <YOUR_CODEWARS_EMAIL> -p <YOUR_CODEWARS_PASSWORD>
 ```
 
 ### Specifying an output directory
@@ -63,7 +53,7 @@ codewars-solutions-scraper -c -u <YOUR_CODEWARS_USERNAME> -e <YOUR_CODEWARS_EMAI
 If you want to save your solutions in a custom directory then use the -o, --output option:
 
 ```sh
-codewars-solutions-scraper -g -o /path/to/custom/dir -u <YOUR_CODEWARS_USERNAME> -e <YOUR_GITHUB_EMAIL> -p <YOUR_GITHUB_PASSWORD>
+npm start -- -g -o /path/to/custom/dir -u <YOUR_CODEWARS_USERNAME> -e <YOUR_GITHUB_EMAIL> -p <YOUR_GITHUB_PASSWORD>
 ```
 
 ## Built With
