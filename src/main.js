@@ -186,7 +186,6 @@ async function main() {
       }
     );
   });
-  log.info(solutions);
 
   log.info(`Successfully scraped ${solutions.length} solutions.`);
   log.info('Closing Puppeteer instance.');
@@ -195,29 +194,17 @@ async function main() {
   log.info(`Saving all solutions to ${program.output}.`);
   fs.mkdirSync(path.join(program.output), { recursive: true });
   for (const solution of solutions) {
-    if (!fs.existsSync(path.join(program.output, solution.kata))) {
-      fs.mkdirSync(path.join(program.output, solution.kata), true);
-      for (let i = 0; i < solution.codeSolutions.length; i++) {
-        fs.writeFileSync(
-          path.join(
-            program.output,
-            solution.kata,
-            generateFilename(i, solution.languages[i], solution.problemName)
-          ),
-          solution.codeSolutions[i]
-        );
-      }
-    } else {
-      for (let i = 0; i < solution.codeSolutions.length; i++) {
-        fs.writeFileSync(
-          path.join(
-            program.output,
-            solution.kata,
-            generateFilename(i, solution.languages[i], solution.problemName)
-          ),
-          solution.codeSolutions[i]
-        );
-      }
+    const pathKata = path.join(program.output, solution.kata);
+    if (!fs.existsSync(pathKata)) fs.mkdirSync(pathKata, true);
+    for (let i = 0; i < solution.codeSolutions.length; i++) {
+      fs.writeFileSync(
+        path.join(
+          program.output,
+          solution.kata,
+          generateFilename(i, solution.languages[i], solution.problemName)
+        ),
+        solution.codeSolutions[i]
+      );
     }
   }
   log.info('DONE.');
